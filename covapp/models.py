@@ -2,7 +2,10 @@ from flask_sqlalchemy import SQLAlchemy
 import logging as lg
 from .views import app
 
+
+
 # Create database connection object
+app.config['SQLCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 db = SQLAlchemy(app)
 
 class Content(db.Model):
@@ -21,24 +24,10 @@ class Content(db.Model):
     shops = db.Column(db.Boolean(), nullable=False)
     restaurants = db.Column(db.Boolean(), nullable=False)
 
-    def __init__(self, country, authorization_status ,details, severity, infoRequirement, vaccination,
-                 test_medical_certificate, other_medical_measures, temparature_check, use_of_mask ,
-                 public_transporations, nightclubs, shops, restaurants):
+    def __repr__(self):
+        return '<Country %r>' % self.country
 
-        self.restaurants = restaurants
-        self.authorization_status = authorization_status
-        self.details =details
-        self.severity = severity
-        self.country = country
-        self.infoRequirement = infoRequirement
-        self.vaccination = vaccination
-        self.test_medical_certificate = test_medical_certificate
-        self.other_medical_measures  =other_medical_measures
-        self.temparature_check =temparature_check
-        self.use_of_mask = use_of_mask
-        self.public_transporations = public_transporations
-        self.nightclubs = nightclubs
-        self.shops = shops
+
 
 
 

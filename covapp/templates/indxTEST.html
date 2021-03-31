@@ -1,0 +1,42 @@
+{%  extends "base.html" %}
+{% block title %}
+<div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Choose your destination</h1>
+        <p class="lead text-muted">On Restrict-19 you can find all the necessary information for all travellers or workers who wish travel abroad. We collect all necessary data for a good trip during this pandemic period. </p>
+        <p>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <option selected>Select a Country</option>
+              {% for country in countries %}
+              <option value="1">{{ country.country }}</option>
+              {% endfor %}
+            </select>
+            <a href="#" class="btn btn-primary my-2">Main call to action</a>
+        </p>
+      </div>
+    </div>
+
+{% endblock %}
+
+ #countries = db.query.order_by(db.country)
+    #return  render_template("Index.html", title = title, country= countries )
+
+****models
+    def __init__(self, country, authorization_status ,details, severity, infoRequirement, vaccination,
+                 test_medical_certificate, other_medical_measures, temparature_check, use_of_mask ,
+                 public_transporations, nightclubs, shops, restaurants):
+
+        self.restaurants = restaurants
+        self.authorization_status = authorization_status
+        self.details =details
+        self.severity = severity
+        self.country = country
+        self.infoRequirement = infoRequirement
+        self.vaccination = vaccination
+        self.test_medical_certificate = test_medical_certificate
+        self.other_medical_measures  =other_medical_measures
+        self.temparature_check =temparature_check
+        self.use_of_mask = use_of_mask
+        self.public_transporations = public_transporations
+        self.nightclubs = nightclubs
+        self.shops = shops
